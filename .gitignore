@@ -1,0 +1,28 @@
+# Virtual environments
+.venv/
+.venv-linux/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Raw and processed data
+data/raw/*.csv
+data/processed/
+data/*.duckdb
+data/*.db
+
+# dbt generated files
+banking_analytics/target/
+banking_analytics/logs/
+banking_analytics/dbt_packages/
+
+# Environment and editor files
+.env
+.vscode/
+.DS_Store
+
+# Local development database and logs
+dev.duckdb
+logs/

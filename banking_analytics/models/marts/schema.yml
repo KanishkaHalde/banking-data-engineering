@@ -1,0 +1,83 @@
+version: 2
+
+models:
+  - name: fct_transaction_summary
+    description: "Transaction summary by transaction type"
+    columns:
+      - name: transaction_type
+        description: "Type of banking transaction"
+        data_tests:
+          - not_null
+          - unique
+          - accepted_values:
+              arguments:
+                values: ['CASH_IN', 'CASH_OUT', 'DEBIT', 'PAYMENT', 'TRANSFER']
+
+      - name: total_transactions
+        data_tests:
+          - not_null
+
+      - name: total_amount
+        data_tests:
+          - not_null
+
+      - name: average_amount
+        data_tests:
+          - not_null
+
+      - name: fraud_transactions
+        data_tests:
+          - not_null
+
+  - name: fct_fraud_analysis
+    description: "Fraud analysis by transaction type"
+    columns:
+      - name: transaction_type
+        data_tests:
+          - not_null
+          - unique
+          - accepted_values:
+              arguments:
+                values: ['CASH_IN', 'CASH_OUT', 'DEBIT', 'PAYMENT', 'TRANSFER']
+
+      - name: total_transactions
+        data_tests:
+          - not_null
+
+      - name: fraud_transactions
+        data_tests:
+          - not_null
+
+      - name: fraud_percentage
+        data_tests:
+          - not_null
+
+  - name: fct_hourly_transaction_summary
+    description: "Hourly transaction summary by transaction type"
+    columns:
+      - name: transaction_step
+        data_tests:
+          - not_null
+
+      - name: transaction_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['CASH_IN', 'CASH_OUT', 'DEBIT', 'PAYMENT', 'TRANSFER']
+
+      - name: total_transactions
+        data_tests:
+          - not_null
+
+      - name: total_amount
+        data_tests:
+          - not_null
+
+      - name: average_amount
+        data_tests:
+          - not_null
+
+      - name: fraud_transactions
+        data_tests:
+          - not_null
