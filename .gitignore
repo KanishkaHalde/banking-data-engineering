@@ -26,3 +26,6 @@ banking_analytics/dbt_packages/
 # Local development database and logs
 dev.duckdb
 logs/
+
+# Generated Power BI exports
+data/powerbi/
